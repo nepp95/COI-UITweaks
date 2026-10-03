@@ -2,6 +2,7 @@
 bin/
 obj/
 packages.lock*
+artifacts
 
 # IDE
 .vs
