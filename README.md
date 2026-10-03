@@ -4,7 +4,7 @@ UI tweaks for Captain of Industry. Pinned resources switch to two columns at a c
 
 ## Install locally
 
-1. Extract `artifacts/UITweaks-0.1.0.zip` into `%APPDATA%\Captain of Industry\Mods`.
+1. Extract `artifacts/UITweaks-{version}.zip` into `%APPDATA%\Captain of Industry\Mods`. Replace version with the correct version.
 2. Verify the result is `Mods\UITweaks\manifest.json` alongside `UITweaks.dll` and `0Harmony.dll`, without an extra nested directory.
 3. Enable **UITweaks** in the mod selection for a new game or an existing save.
 4. Use the − / + buttons in the resource panel header to select 1–4 columns. Auto clears the override. The threshold and initial settings are also available from the configuration button on the mod-selection tile.

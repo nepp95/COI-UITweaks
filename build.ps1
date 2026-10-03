@@ -71,7 +71,22 @@ try
     Copy-Item -LiteralPath README.md -Destination (Join-Path $package 'readme.txt')
     Copy-Item -LiteralPath THIRD-PARTY-NOTICES.txt -Destination $package
 
-    $allowed = $buildFiles + @('readme.txt', 'THIRD-PARTY-NOTICES.txt')
+    # Annotated tags supply release notes; lightweight tags use their commit message.
+    # The last Git sort key is primary: creation date, then version for ties.
+    $changelog = @(git --no-pager for-each-ref --sort=-version:refname --sort=-creatordate '--format=%(refname:short) (%(creatordate:short))%0a%(contents)%0a' refs/tags)
+
+    if ($LASTEXITCODE)
+    {
+        throw 'Could not generate changelog from Git tags.'
+    }
+
+    $changelogText = ($changelog -join [Environment]::NewLine).TrimEnd()
+    [System.IO.File]::WriteAllText(
+        (Join-Path $package 'changelog.txt'),
+        $changelogText + [Environment]::NewLine,
+        [System.Text.UTF8Encoding]::new($false))
+
+    $allowed = $buildFiles + @('readme.txt', 'THIRD-PARTY-NOTICES.txt', 'changelog.txt')
     $unexpected = Get-ChildItem -LiteralPath $package -Force |
         Where-Object { $_.Name -notin $allowed }
 

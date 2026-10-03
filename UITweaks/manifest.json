@@ -1,6 +1,6 @@
 {
   "id": "UITweaks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "display_name": "UITweaks",
   "description_short": "UI tweaks: configure automatic resource columns or choose 1–4 columns directly from the resource panel.",
   "primary_dlls": ["0Harmony.dll", "UITweaks.dll"],
