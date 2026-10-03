@@ -1,0 +1,23 @@
+{
+  "enabled": {
+    "default": true,
+    "description": "Use custom resource columns. Disable to restore the game's automatic layout."
+  },
+  "rows_before_split": {
+    "default": 15,
+    "min": 1,
+    "max": 100,
+    "is_integer": true,
+    "description": "Maximum pinned resources in a single column before switching to two balanced columns. Used when fixed_columns is 0."
+  },
+  "fixed_columns": {
+    "default": 0,
+    "min": 0,
+    "max": 4,
+    "is_integer": true,
+    "description": "0 = automatic resource-count threshold; 1–4 = manual column override. The resource-panel buttons change this value. Large lists can extend below the screen."
+  }
+}
+
+
+

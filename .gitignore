@@ -1,0 +1,8 @@
+# Build
+bin/
+obj/
+packages.lock*
+
+# IDE
+.vs
+.tools
